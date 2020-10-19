@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-box {
+    position: relative;
+    width: 80vw;
+    height: 45vw;
+    overflow: hidden;
+    border-radius: 30px;
+}
+.img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5;
+}
+.img-box img:nth-child(1) {
+    z-index: 1;
+}
+.img-box img:nth-child(2),
+.img-box img:nth-child(3),
+.img-box img:nth-child(4) {
+    z-index: 0;
+}
+.click {
+    animation: pop 4s;
+}
+@keyframes pop {
+    0% {
+        clip-path: circle(10% at var(--posX) var(--posY));
+    }
+    50%,
+    100% {
+        clip-path: circle(100%);
+    }
+}
